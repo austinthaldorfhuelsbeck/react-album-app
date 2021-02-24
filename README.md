@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# React Album App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Your task is to build a React App to view the albums owned by users. It should contain a list of users on the left. On the right it should have a list of albums owned by the selected user. As you click through the users, the list of albums should change.
 
-## Available Scripts
+When a user is selected, display the albums for that user.
 
-In the project directory, you can run:
+* Load users from https://jsonplaceholder.typicode.com/users
+* Load albums from https://jsonplaceholder.typicode.com/albums?userId=${user.id}
+* Create additional components that are then used by the App component.
+* Style the components using inline styling and/or CSS files. It does not need to match the appearance of the example image, but should have a reasonable layout.
+* The document title should be "Awesome Album App" and should reset to the original document title when the component is cleaned up. You can get the original title by accessing document.title and storing that value.
+* Pending API calls should be canceled when the user changes.
+* State should be "lifted up" whenever possible.
+* Do not make any assumptions about the number of users or number of albums owned by the user.
+* If no user is selected, the right side should display "Please click on a user name to the left"
+* List of albums should include the album id and the album title
 
-### `npm start`
+Note: When running the tests, you might see messages like Warning: An update to %s inside a test was not wrapped in act(...). These can be ignored and will go away once the test is passing.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Success Criteria:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Functionality:
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Document title is set to "Awesome Album App"
+* Document title is reset to original title on cleanup
+* List of user names is displayed
+* Clicking the user name displays a ist of albums owned by the user
+* Pending API calls are cancelled when a new user is selected. Make use of the AbortController and handle abort errors accordingly.
