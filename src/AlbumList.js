@@ -1,16 +1,20 @@
 import React from "react";
 
 export default function AlbumList({ user = {}, albums }) {
-  if (user.id) {
+  if (!user.id) return <p>Please click on a user name to the left</p>;
+  if (albums.length > 0) {
     return (
-      <ul className="album-list">
-        {albums.map((album) => (
-          <li key={album.id} className="text-center py-2">
-            {album.id} - {album.title}
-          </li>
-        ))}
-      </ul>
+      <div className="text-center mx-auto">
+        <h1>{user.name} Albums:</h1>
+        <ul className="album-list">
+          {albums.map((album) => (
+            <li key={album.id} className="py-2">
+              {album.id} - {album.title}
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
-  return <p>Please click on a user name to the left</p>;
+  return <p>Loading...</p>;
 }

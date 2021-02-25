@@ -21,16 +21,35 @@ export default function App() {
     loadUsers();
   }, []);
 
-  // Load album data
+  // Load album data w cleanup
   useEffect(() => {
+    setAlbums({});
+    const abortController = new AbortController();
+
     async function loadAlbums() {
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/albums?userId=${currentUser.id}`
-      );
-      const albumsFromAPI = await response.json();
-      setAlbums(albumsFromAPI);
+      try {
+        const response = await fetch(
+          `https://jsonplaceholder.typicode.com/albums?userId=${currentUser.id}`
+        );
+        const albumsFromAPI = await response.json();
+        setAlbums(albumsFromAPI);
+      } catch (error) {
+        if (error.name === "AbortError") {
+          // Ignore `AbortError`
+          console.log("Aborted", currentUser);
+        } else {
+          throw error;
+        }
+      }
     }
+
     loadAlbums();
+
+    return () => {
+      console.log("cleanup", currentUser);
+      abortController.abort();
+      document.title = "Awesome Album App";
+    };
   }, [currentUser]);
 
   return (
