@@ -15,8 +15,6 @@ When a user is selected, display the albums for that user.
 * If no user is selected, the right side should display "Please click on a user name to the left"
 * List of albums should include the album id and the album title
 
-Note: When running the tests, you might see messages like Warning: An update to %s inside a test was not wrapped in act(...). These can be ignored and will go away once the test is passing.
-
 ## Success Criteria:
 
 ### Functionality:
